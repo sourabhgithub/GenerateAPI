@@ -22,7 +22,6 @@ public class JsonToMapConverter {
 			} catch (Exception e) {
 				val = json.getString(key);
 			}
-
 			if (val != null) {
 				out.put(key, val);
 			}
@@ -36,7 +35,6 @@ public class JsonToMapConverter {
 		InputStream is = JsonToMapConverter.class.getClass().getResourceAsStream(fileName);
 		Scanner s = new Scanner(is).useDelimiter("\\A");
 		String result = s.hasNext() ? s.next() : "";
-
 		return result;
 	}
 

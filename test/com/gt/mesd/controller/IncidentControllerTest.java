@@ -10,7 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import com.gt.mesd.util.ConfigProperties;
+import com.gt.mesd.util.PropertiesToMapConverter;
 import com.gt.mesd.util.JsonToMapConverter;
 
 
