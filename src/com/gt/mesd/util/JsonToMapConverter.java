@@ -1,8 +1,9 @@
 package com.gt.mesd.util;
 
-import java.util.HashMap;
+import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Scanner;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,6 +28,16 @@ public class JsonToMapConverter {
 			}
 		}
 		return out;
+
+	}
+
+	@SuppressWarnings("resource")
+	public static String getJsonObject(String fileName) {
+		InputStream is = JsonToMapConverter.class.getClass().getResourceAsStream(fileName);
+		Scanner s = new Scanner(is).useDelimiter("\\A");
+		String result = s.hasNext() ? s.next() : "";
+
+		return result;
 	}
 
 }
