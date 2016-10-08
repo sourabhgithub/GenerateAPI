@@ -13,10 +13,6 @@ import org.json.JSONObject;
 import org.json.XML;
 
 import com.gt.mesd.util.PropertiesToMapConverter;
-//json in, output -> json/xml configurable
-//json function(String json,String propFile(use config file),boolean isXml)
-//json can be nested
-//json -> prop lookup in file and replace by value
 
 public class DataTransformer {
 	
