@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.XML;
 
 import com.gt.mesd.util.PropertiesToMapConverter;
 //json in, output -> json/xml configurable
@@ -19,6 +20,13 @@ import com.gt.mesd.util.PropertiesToMapConverter;
 
 public class DataTransformer {
 	
+	public static String transformJsonToXml(JSONObject inputJson, String propFileName) throws JSONException, IOException{
+		JSONObject outJson = transformJsonToJson(inputJson, propFileName);
+				
+		return XML.toString(outJson);
+	}
+	
+	//transform JSONObject to JSONObject by replacing keys from given propsFile
 	public static JSONObject transformJsonToJson(JSONObject inputJson, String propFileName) throws JSONException, IOException{
 		//JSONObject json = new JSONObject(input);
 		PropertiesToMapConverter propertiesToMapConverter = new PropertiesToMapConverter();
