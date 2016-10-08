@@ -53,6 +53,8 @@ public class BaseTest {
 		
 		JSONObject outJson = DataTransformer.transformJsonToJson(inputJson, propertiesMap);
 		
+		System.out.println();
+		System.out.println("JSON Transform Test: ");
 		System.out.println(outJson);
 	}
 
