@@ -8,6 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
+import com.gt.mesd.tranformer.DataTransformer;
+
 public class BaseTest {
 	@Test
 	public void loadProperties() throws IOException {
@@ -41,6 +43,12 @@ public class BaseTest {
 		}
 		JSONObject jsonObject = MapToJsonConvertor.getJsonFromMap(map3);
 		System.out.println(jsonObject);
+	}
+	
+	@Test
+	public void JsonTransformTest() throws JSONException{
+		//JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
+		//JSONObject outJson = DataTransformer.transformJsonToJson(inputJson, propFileName)
 	}
 
 }

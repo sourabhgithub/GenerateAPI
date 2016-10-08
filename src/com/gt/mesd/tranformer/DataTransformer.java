@@ -20,17 +20,16 @@ import com.gt.mesd.util.PropertiesToMapConverter;
 
 public class DataTransformer {
 	
-	public static String transformJsonToXml(JSONObject inputJson, String propFileName) throws JSONException, IOException{
-		JSONObject outJson = transformJsonToJson(inputJson, propFileName);
+	public static String transformJsonToXml(JSONObject inputJson, Map<String,String> propMap) throws JSONException, IOException{
+		JSONObject outJson = transformJsonToJson(inputJson, propMap);
 				
 		return XML.toString(outJson);
 	}
 	
 	//transform JSONObject to JSONObject by replacing keys from given propsFile
-	public static JSONObject transformJsonToJson(JSONObject inputJson, String propFileName) throws JSONException, IOException{
+	public static JSONObject transformJsonToJson(JSONObject inputJson, Map<String,String> propMap) throws JSONException, IOException{
 		//JSONObject json = new JSONObject(input);
 		PropertiesToMapConverter propertiesToMapConverter = new PropertiesToMapConverter();
-	    Map<String,String> propMap = propertiesToMapConverter.getPropertiesMap(propFileName);
 		
 	    JSONObject outJson = new JSONObject();
 	    
@@ -39,7 +38,7 @@ public class DataTransformer {
 			String key = keys.next();
 			try {
 				JSONObject value = inputJson.getJSONObject(key);
-				outJson.put(replaceIfExists(propMap,key), transformJsonToJson(value, propFileName));
+				outJson.put(replaceIfExists(propMap,key), transformJsonToJson(value, propMap));
 			} catch (Exception e) {
 				outJson.put(replaceIfExists(propMap,key), inputJson.get(key));
 			}
