@@ -28,8 +28,6 @@ public class DataTransformer {
 	
 	//transform JSONObject to JSONObject by replacing keys from given propsFile
 	public static JSONObject transformJsonToJson(JSONObject inputJson, Map<String,String> propMap) throws JSONException, IOException{
-		//JSONObject json = new JSONObject(input);
-		PropertiesToMapConverter propertiesToMapConverter = new PropertiesToMapConverter();
 		
 	    JSONObject outJson = new JSONObject();
 	    

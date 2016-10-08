@@ -46,9 +46,14 @@ public class BaseTest {
 	}
 	
 	@Test
-	public void JsonTransformTest() throws JSONException{
-		//JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
-		//JSONObject outJson = DataTransformer.transformJsonToJson(inputJson, propFileName)
+	public void JsonTransformTest() throws JSONException, IOException{
+		PropertiesToMapConverter conf = new PropertiesToMapConverter();
+		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
+		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
+		
+		JSONObject outJson = DataTransformer.transformJsonToJson(inputJson, propertiesMap);
+		
+		System.out.println(outJson);
 	}
 
 }
