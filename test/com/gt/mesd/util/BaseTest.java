@@ -58,4 +58,16 @@ public class BaseTest {
 		System.out.println(outJson);
 	}
 
+	@Test
+	public void XmlTransformTest() throws JSONException, IOException{
+		PropertiesToMapConverter conf = new PropertiesToMapConverter();
+		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
+		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
+		
+		String xml = DataTransformer.transformJsonToXml(inputJson, propertiesMap);
+		
+		System.out.println();
+		System.out.println("XML Transform Test: ");
+		System.out.println(xml);
+	}
 }

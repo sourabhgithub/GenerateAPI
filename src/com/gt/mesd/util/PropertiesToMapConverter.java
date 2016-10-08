@@ -32,7 +32,7 @@ public class PropertiesToMapConverter {
 		Set<Object> keys = getAllKeys();
 		for (Object k : keys) {
 			String key = (String) k;
-			System.out.println(key + ": " + getPropertyValue(key));
+			//System.out.println(key + ": " + getPropertyValue(key));
 			map.put(key, getPropertyValue(key));
 		}
 		return map;
