@@ -19,7 +19,6 @@ public class IncidentController {
 		Request request = new Request.Builder().url(url).post(body).build();
 		Response response = client.newCall(request).execute();
 		return response.body().string();
-	}
-	
+	}	
 	
 }

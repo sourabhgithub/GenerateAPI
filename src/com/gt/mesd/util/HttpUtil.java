@@ -16,12 +16,41 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 
 public class HttpUtil {
-	public static String makePostRequest(String url, List<NameValuePair> urlParameters) throws IOException{
+	public static String postRequest1(String url, String username, String password) throws IOException{
 		org.apache.http.client.HttpClient client = HttpClientBuilder.create().build();
 		HttpPost post = new HttpPost(url);
 
-		// add header
 		post.setHeader("Content-Type", "application/x-www-form-urlencoded");
+		
+		List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+		urlParameters.add(new BasicNameValuePair("username", username));
+		urlParameters.add(new BasicNameValuePair("password", password));
+		
+		post.setEntity(new UrlEncodedFormEntity(urlParameters));
+
+		HttpResponse response = client.execute(post);
+		System.out.println("Response Code : " + response.getStatusLine().getStatusCode());
+
+		BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+
+		StringBuffer result = new StringBuffer();
+		String line = "";
+		while ((line = rd.readLine()) != null) {
+			result.append(line);
+		}
+		
+		return result.toString();
+	}
+	
+	public static String postRequest2(String url, String username, String sessionId) throws IOException{
+		org.apache.http.client.HttpClient client = HttpClientBuilder.create().build();
+		HttpPost post = new HttpPost(url);
+
+		post.setHeader("Content-Type", "application/x-www-form-urlencoded");
+		
+		List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
+		urlParameters.add(new BasicNameValuePair("username", username));
+		urlParameters.add(new BasicNameValuePair("sessionId", sessionId));
 		
 		post.setEntity(new UrlEncodedFormEntity(urlParameters));
 
