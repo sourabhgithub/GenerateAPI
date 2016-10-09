@@ -71,13 +71,4 @@ public class BaseTest {
 		System.out.println(xml);
 	}
 		
-	@Test
-	public void JsonMockHttpTest() throws IOException, JSONException{
-		PropertiesToMapConverter conf = new PropertiesToMapConverter();
-		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
-		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
-		JSONObject jsonPayload = DataTransformer.transformJsonToJson(inputJson, propertiesMap);
-		
-		
-	}
 }

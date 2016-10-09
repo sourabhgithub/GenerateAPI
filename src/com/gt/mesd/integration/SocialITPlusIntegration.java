@@ -2,6 +2,7 @@
 package com.gt.mesd.integration;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -13,18 +14,45 @@ import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
+import com.gt.mesd.controller.IncidentController;
+import com.gt.mesd.controller.RequestController;
+import com.gt.mesd.controller.TaskController;
 import com.manageengine.servicedesk.actionplugin.executor.DefaultActionInterface;
 import com.manageengine.servicedesk.actionplugin.executor.ExecutorData;
 import com.manageengine.servicedesk.utils.CommonUtil;
 
 
 public class SocialITPlusIntegration extends DefaultActionInterface {
+	private static final String KEY_LEVEL = "LEVEL";
+	private static final String REQUEST = "Request";
+	private static final String INCIDENT = "Incident";
+	private static final String TASK = "Task";
+	
 	private static final Logger LOGGER = Logger.getLogger(SocialITPlusIntegration.class.getName());
     @Override
     public JSONObject execute(ExecutorData data) throws Exception {
 
     	//JSONObject dataJSON2 = data.getDataJSON();
         JSONObject resultJson = data.getDataJSON();
+       
+        /*String level = resultJson.getString(KEY_LEVEL);
+        switch(level){
+        	case REQUEST:
+        		RequestController requestController = new RequestController();
+        		requestController.makeRequest(resultJson);
+        		break;
+        	case INCIDENT:
+        		IncidentController incidentController = new IncidentController();
+        		incidentController.makeRequest(resultJson);
+        		break;
+        	case TASK:
+        		TaskController taskController = new TaskController();
+        		taskController.makeRequest(resultJson);
+        		break;
+        }*/
+        
+        
+
         
         HttpClient client = HttpClientBuilder.create().build();
 		

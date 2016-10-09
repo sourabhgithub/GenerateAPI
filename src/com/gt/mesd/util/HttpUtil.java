@@ -10,14 +10,19 @@ import java.util.List;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.AbstractHttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 
 public class HttpUtil {
 	public static String postRequest1(String url, String username, String password) throws IOException{
-		org.apache.http.client.HttpClient client = HttpClientBuilder.create().build();
+		HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
+		
+		HttpClient client = httpClientBuilder.build();
 		HttpPost post = new HttpPost(url);
 
 		post.setHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -43,7 +48,9 @@ public class HttpUtil {
 	}
 	
 	public static String postRequest2(String url, String username, String sessionId) throws IOException{
-		org.apache.http.client.HttpClient client = HttpClientBuilder.create().build();
+		HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
+		
+		HttpClient client = httpClientBuilder.build();
 		HttpPost post = new HttpPost(url);
 
 		post.setHeader("Content-Type", "application/x-www-form-urlencoded");
