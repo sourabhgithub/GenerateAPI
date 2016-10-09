@@ -31,6 +31,8 @@ public class TaskController {/*
 	}*/
 	
 	public void makeRequestWithJson(JSONObject json, Map<String,String> propMap) throws JSONException, IOException{
+		System.out.println("TaskController: makeRequestWithJson()");
+		
 		TaskService taskService = new TaskServiceImpl();
 		JSONObject transformedJson = taskService.transformJsonToJson(json, propMap);
 		
@@ -38,6 +40,8 @@ public class TaskController {/*
 	}
 	
 	public void makeRequestWithXml(JSONObject json, Map<String,String> propMap) throws JSONException,IOException{
+		System.out.println("TaskController: makeRequestWithXml()");
+		
 		TaskService taskService = new TaskServiceImpl();
 		String transformedXml = taskService.transformJsonToXml(json, propMap);
 	

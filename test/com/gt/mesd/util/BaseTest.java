@@ -8,6 +8,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
+import com.gt.mesd.controller.IncidentController;
+import com.gt.mesd.controller.RequestController;
+import com.gt.mesd.controller.TaskController;
+import com.gt.mesd.service.IncidentService;
+import com.gt.mesd.service.RequestService;
+import com.gt.mesd.service.impl.IncidentServiceImpl;
+import com.gt.mesd.service.impl.RequestServiceImpl;
+
 
 
 public class BaseTest {
@@ -42,6 +50,9 @@ public class BaseTest {
 			}
 		}
 		JSONObject jsonObject = MapToJsonConvertor.getJsonFromMap(map3);
+		
+		System.out.println();
+		System.out.println("runTest:");
 		System.out.println(jsonObject);
 	}
 	
@@ -71,4 +82,6 @@ public class BaseTest {
 		System.out.println(xml);
 	}
 		
+	
+	
 }

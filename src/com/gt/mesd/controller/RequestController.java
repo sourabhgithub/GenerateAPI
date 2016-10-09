@@ -46,6 +46,8 @@ public class RequestController {
 	}*/
 	
 	public void makeRequestWithJson(JSONObject json, Map<String,String> propMap) throws JSONException, IOException{
+		System.out.println("RequestController: makeRequestWithJson()");
+		
 		RequestService requestService = new RequestServiceImpl();
 		JSONObject transformedJson = requestService.transformJsonToJson(json, propMap);
 		
@@ -53,6 +55,8 @@ public class RequestController {
 	}
 	
 	public void makeRequestWithXml(JSONObject json, Map<String,String> propMap) throws JSONException,IOException{
+		System.out.println("RequestController: makeRequestWithXml()");
+		
 		RequestService requestService = new RequestServiceImpl();
 		String transformedXml = requestService.transformJsonToXml(json, propMap);
 	

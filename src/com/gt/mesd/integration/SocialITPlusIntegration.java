@@ -23,11 +23,7 @@ import com.manageengine.servicedesk.utils.CommonUtil;
 
 
 public class SocialITPlusIntegration extends DefaultActionInterface {
-	private static final String KEY_LEVEL = "LEVEL";
-	private static final String REQUEST = "Request";
-	private static final String INCIDENT = "Incident";
-	private static final String TASK = "Task";
-	
+		
 	private static final Logger LOGGER = Logger.getLogger(SocialITPlusIntegration.class.getName());
     @Override
     public JSONObject execute(ExecutorData data) throws Exception {
@@ -35,25 +31,7 @@ public class SocialITPlusIntegration extends DefaultActionInterface {
     	//JSONObject dataJSON2 = data.getDataJSON();
         JSONObject resultJson = data.getDataJSON();
        
-        /*String level = resultJson.getString(KEY_LEVEL);
-        switch(level){
-        	case REQUEST:
-        		RequestController requestController = new RequestController();
-        		requestController.makeRequest(resultJson);
-        		break;
-        	case INCIDENT:
-        		IncidentController incidentController = new IncidentController();
-        		incidentController.makeRequest(resultJson);
-        		break;
-        	case TASK:
-        		TaskController taskController = new TaskController();
-        		taskController.makeRequest(resultJson);
-        		break;
-        }*/
-        
-        
-
-        
+               
         HttpClient client = HttpClientBuilder.create().build();
 		
 		HttpGet httpGet = new HttpGet("http://10.1.1.210:8080/spring/rest/emps");

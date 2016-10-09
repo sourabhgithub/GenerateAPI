@@ -30,6 +30,8 @@ public class IncidentController {/*
 	}	*/
 	
 	public void makeRequestWithJson(JSONObject json, Map<String,String> propMap) throws JSONException, IOException{
+		System.out.println("IncidentController: makeRequestWithJson()");
+		
 		IncidentService incidentService = new IncidentServiceImpl();
 		JSONObject transformedJson = incidentService.transformJsonToJson(json, propMap);
 		
@@ -37,6 +39,8 @@ public class IncidentController {/*
 	}
 	
 	public void makeRequestWithXml(JSONObject json, Map<String,String> propMap) throws JSONException,IOException{
+		System.out.println("IncidentController: makeRequestWithXml()");
+		
 		IncidentService incidentService = new IncidentServiceImpl();
 		String transformedXml = incidentService.transformJsonToXml(json, propMap);
 
