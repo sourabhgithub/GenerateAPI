@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import com.gt.mesd.tranformer.DataTransformer;
+
 
 public class BaseTest {
 	@Test
@@ -59,19 +59,6 @@ public class BaseTest {
 	}
 	
 	@Test
-	public void NestedJsonTransformTest() throws JSONException, IOException{
-		PropertiesToMapConverter conf = new PropertiesToMapConverter();
-		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request-nestedjson.json"));
-		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
-		
-		JSONObject outJson = DataTransformer.transformJsonToJson(inputJson, propertiesMap);
-		
-		System.out.println();
-		System.out.println("Nested JSON Transform Test: ");
-		System.out.println(outJson);
-	}
-
-	@Test
 	public void XmlTransformTest() throws JSONException, IOException{
 		PropertiesToMapConverter conf = new PropertiesToMapConverter();
 		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
@@ -83,17 +70,14 @@ public class BaseTest {
 		System.out.println("XML Transform Test: ");
 		System.out.println(xml);
 	}
-	
+		
 	@Test
-	public void NestedXmlTransformTest() throws JSONException, IOException{
+	public void JsonMockHttpTest() throws IOException, JSONException{
 		PropertiesToMapConverter conf = new PropertiesToMapConverter();
-		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request-nestedjson.json"));
+		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
 		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
+		JSONObject jsonPayload = DataTransformer.transformJsonToJson(inputJson, propertiesMap);
 		
-		String xml = DataTransformer.transformJsonToXml(inputJson, propertiesMap);
 		
-		System.out.println();
-		System.out.println("Nested XML Transform Test: ");
-		System.out.println(xml);
 	}
 }
