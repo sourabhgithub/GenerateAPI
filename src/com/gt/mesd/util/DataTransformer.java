@@ -25,7 +25,8 @@ public class DataTransformer {
 	public static JSONObject transformJsonToJson(JSONObject inputJson, Map<String,String> propMap) throws JSONException, IOException{
 		JSONObject outJson = new JSONObject();
 	    
-	    Iterator<String> keys = inputJson.keys();
+	    @SuppressWarnings("unchecked")
+		Iterator<String> keys = inputJson.keys();
 		while (keys.hasNext()) {
 			String key = keys.next();
 			try {

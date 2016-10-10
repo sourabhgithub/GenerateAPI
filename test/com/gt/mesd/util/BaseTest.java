@@ -8,14 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import com.gt.mesd.controller.IncidentController;
-import com.gt.mesd.controller.RequestController;
-import com.gt.mesd.controller.TaskController;
-import com.gt.mesd.service.IncidentService;
-import com.gt.mesd.service.RequestService;
-import com.gt.mesd.service.impl.IncidentServiceImpl;
-import com.gt.mesd.service.impl.RequestServiceImpl;
-
 
 
 public class BaseTest {
@@ -28,7 +20,7 @@ public class BaseTest {
 
 	@Test
 	public void runTest() throws JSONException, IOException {
-		String json = JsonToMapConverter.getJsonObject("/gt-request.json");
+		String json = JsonToMapConverter.getJsonObject("/gt-incident.json");
 
 		JSONObject info = new JSONObject(json);
 
@@ -59,7 +51,7 @@ public class BaseTest {
 	@Test
 	public void JsonTransformTest() throws JSONException, IOException{
 		PropertiesToMapConverter conf = new PropertiesToMapConverter();
-		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
+		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-incident.json"));
 		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
 		
 		JSONObject outJson = DataTransformer.transformJsonToJson(inputJson, propertiesMap);
@@ -72,7 +64,7 @@ public class BaseTest {
 	@Test
 	public void XmlTransformTest() throws JSONException, IOException{
 		PropertiesToMapConverter conf = new PropertiesToMapConverter();
-		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
+		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-incident.json"));
 		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
 		
 		String xml = DataTransformer.transformJsonToXml(inputJson, propertiesMap);
