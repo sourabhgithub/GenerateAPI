@@ -16,19 +16,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class IncidentController {/*
-	public static String GET(OkHttpClient client, HttpUrl url) throws IOException {
-		Request request = new Request.Builder().url(url).build();
-		Response response = client.newCall(request).execute();
-		return response.body().string();
-	}
+public class IncidentController {
 
-	public static String POST(OkHttpClient client, HttpUrl url, RequestBody body) throws IOException {
-		Request request = new Request.Builder().url(url).post(body).build();
-		Response response = client.newCall(request).execute();
-		return response.body().string();
-	}	*/
-	
 	public void makeRequestWithJson(JSONObject json, Map<String,String> propMap) throws JSONException, IOException{
 		System.out.println("IncidentController: makeRequestWithJson()");
 		

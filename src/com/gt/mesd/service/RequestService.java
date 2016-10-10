@@ -7,6 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public interface RequestService {
-	public JSONObject transformJsonToJson(JSONObject json,Map<String,String> propMap) throws JSONException,IOException;;
-	public String transformJsonToXml(JSONObject json,Map<String,String> propMap) throws JSONException,IOException;;
+
+	public JSONObject transformJsonToJson(JSONObject json, Map<String, String> propMap) throws JSONException, IOException;;
+
+	public String transformJsonToXml(JSONObject json, Map<String, String> propMap) throws JSONException, IOException;;
 }
