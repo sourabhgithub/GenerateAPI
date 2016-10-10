@@ -3,10 +3,14 @@ package com.gt.mesd.util;
 import java.io.IOException;
 
 import junit.framework.Assert;
+
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 public class HttpRequestTest extends Mockito{
+	private static final Logger LOGGER = Logger.getLogger(HttpRequestTest.class.getName());
+	
 	@Test
 	public void PostRequest1SuccessTest() throws IOException{
 		final String URL = "mockUrl";
@@ -14,7 +18,7 @@ public class HttpRequestTest extends Mockito{
 		final String PASSWORD = "mockPass";
 		
 		HttpUtil httpUtil = mock(HttpUtil.class);
-		
+		LOGGER.info("Test");
 		when(httpUtil.postRequest1(URL, USER, PASSWORD)).thenReturn(201);
 	
 		int response = httpUtil.postRequest1(URL, USER, PASSWORD);

@@ -31,9 +31,10 @@ public class HttpUtil {
 		urlParameters.add(new BasicNameValuePair("password", password));
 		
 		post.setEntity(new UrlEncodedFormEntity(urlParameters));
-
-		LOGGER.log(Priority.INFO, "PostRequest1 - Requesting with params: username="+username+"&password="
-				+password);
+		
+		LOGGER.info("Logger Class");
+		//LOGGER.log(Priority.INFO, "PostRequest1 - Requesting with params: username="+username+"&password="
+		//		+password);
 		
 		HttpResponse response = client.execute(post);
 		int rc = response.getStatusLine().getStatusCode();
