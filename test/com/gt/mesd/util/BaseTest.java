@@ -1,79 +1,49 @@
 package com.gt.mesd.util;
 
+import static org.junit.Assert.*;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.Before;
 import org.junit.Test;
 
-
-
 public class BaseTest {
-	@Test
-	public void loadProperties() throws IOException {
 
-		PropertiesToMapConverter conf = new PropertiesToMapConverter();
-		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
+	PropertiesToMapConverter conf = null;
+	Map<String, String> propertiesMap = null;
+	JSONObject inputJson = null;
+	String json = null;
+
+	@Before
+	public void beforeTest() throws JSONException, IOException {
+		conf = new PropertiesToMapConverter();
+		inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-incident.json"));
+		propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
+
+
 	}
 
 	@Test
-	public void runTest() throws JSONException, IOException {
-		String json = JsonToMapConverter.getJsonObject("/gt-incident.json");
-
-		JSONObject info = new JSONObject(json);
-
-		Map<String, String> out = new HashMap<String, String>();
-
-		Map<String, String> jsonMap = JsonToMapConverter.parse(info, out);
-
-		PropertiesToMapConverter conf = new PropertiesToMapConverter();
-
-		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
-
-		Map<String, Object> map3 = new HashMap<String, Object>();
-
-		for (Object key : jsonMap.keySet()) {
-			String value2 = propertiesMap.get(key);
-			if (value2 != null) {
-				Object value1 = jsonMap.get(key);
-				map3.put(value2, value1);
-			}
-		}
-		JSONObject jsonObject = MapToJsonConvertor.getJsonFromMap(map3);
-		
-		System.out.println();
-		System.out.println("runTest:");
-		System.out.println(jsonObject);
-	}
-	
-	@Test
-	public void JsonTransformTest() throws JSONException, IOException{
-		PropertiesToMapConverter conf = new PropertiesToMapConverter();
-		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-incident.json"));
-		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
+	public void JsonTransformTest() throws JSONException, IOException {
 		
 		JSONObject outJson = DataTransformer.transformJsonToJson(inputJson, propertiesMap);
-		
+		assertNotNull(outJson);
 		System.out.println();
-		System.out.println("JSON Transform Test: ");
+		System.out.println("Json Transform Test: ");
 		System.out.println(outJson);
 	}
-	
+
 	@Test
-	public void XmlTransformTest() throws JSONException, IOException{
-		PropertiesToMapConverter conf = new PropertiesToMapConverter();
-		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-incident.json"));
-		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
-		
+	public void XmlTransformTest() throws JSONException, IOException {
 		String xml = DataTransformer.transformJsonToXml(inputJson, propertiesMap);
-		
+		assertNotNull(xml);
 		System.out.println();
 		System.out.println("XML Transform Test: ");
 		System.out.println(xml);
 	}
-		
-	
-	
+
 }
