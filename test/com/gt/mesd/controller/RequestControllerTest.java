@@ -20,7 +20,7 @@ public class RequestControllerTest {
 		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
 		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
 
-		if (Constants.REQUEST.equalsIgnoreCase(inputJson.getString(Constants.KEY_LEVEL))) {
+		if (Constants.REQUEST.equalsIgnoreCase(inputJson.getString(Constants.LEVEL))) {
 			RequestController requestController = new RequestController();
 			requestController.makeRequestWithJson(inputJson, propertiesMap);
 			requestController.makeRequestWithXml(inputJson, propertiesMap);

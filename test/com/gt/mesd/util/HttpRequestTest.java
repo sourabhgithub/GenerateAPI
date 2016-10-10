@@ -17,10 +17,8 @@ public class HttpRequestTest extends Mockito{
 		final String USER = "mockUser";
 		final String PASSWORD = "mockPass";
 		
-		HttpUtil httpUtil = mock(HttpUtil.class);
-		LOGGER.info("Test");
-		when(httpUtil.postRequest1(URL, USER, PASSWORD)).thenReturn(201);
-	
+		HttpUtil httpUtil  = new HttpUtil();
+		
 		int response = httpUtil.postRequest1(URL, USER, PASSWORD);
 		//System.out.println(response);
 		Assert.assertEquals(201, response);

@@ -19,7 +19,7 @@ public class IncidentControllerTest {
 		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-incident.json"));
 		Map<String, String> propertiesMap = conf.getPropertiesMap("/incident-mapping-gt-to-lt.properties");
 
-		if (Constants.INCIDENT.equalsIgnoreCase(inputJson.getString(Constants.KEY_LEVEL))) {
+		if (Constants.INCIDENT.equalsIgnoreCase(inputJson.getString(Constants.LEVEL))) {
 			IncidentController incidentController = new IncidentController();
 			incidentController.makeRequestWithJson(inputJson, propertiesMap);
 			incidentController.makeRequestWithXml(inputJson, propertiesMap);
