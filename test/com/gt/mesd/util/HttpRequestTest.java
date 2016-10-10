@@ -40,4 +40,32 @@ public class HttpRequestTest extends Mockito{
 		//System.out.println(response);
 		Assert.assertEquals(201, response);
 	}
+	
+	@Test(expected = IOException.class)
+	public void PostRequest1ExceptionTest() throws IOException{
+		final String URL = "mockUrl";
+		final String USER = "mockUser";
+		final String PASSWORD = "mockPass";
+		
+		HttpUtil httpUtil = mock(HttpUtil.class);
+				
+		when(httpUtil.postRequest1(URL, USER, PASSWORD)).thenThrow(new IOException("IOException"));
+		
+		httpUtil.postRequest1(URL, USER, PASSWORD);
+		
+	}
+	
+	@Test(expected = IOException.class)
+	public void PostRequest2ExceptionTest() throws IOException{
+		final String URL = "mockUrl";
+		final String USER = "mockUser";
+		final String SESSION_ID = "mockSessionId";
+		
+		HttpUtil httpUtil = mock(HttpUtil.class);
+				
+		when(httpUtil.postRequest2(URL, USER, SESSION_ID)).thenThrow(new IOException("IOException"));
+		
+		httpUtil.postRequest2(URL, USER, SESSION_ID);
+		
+	}
 }
