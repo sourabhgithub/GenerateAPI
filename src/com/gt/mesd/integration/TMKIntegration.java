@@ -32,7 +32,10 @@ public class TMKIntegration extends DefaultActionInterface {
 		LOGGER.info("START : execute : " + TMKIntegration.class.getName());
 
 		JSONObject resultJson = data.getDataJSON();
-
+		
+		System.out.println("CONTENT#########################");
+		System.out.println(resultJson);
+		System.out.println("CONTENT#########################");
 		String level = resultJson.getString(Constants.LEVEL);
 		switch (level) {
 		case Constants.REQUEST:
