@@ -102,14 +102,14 @@ public class HttpUtil {
 			@Override
 			public boolean retryRequest(IOException exception, int executionCount, HttpContext httpContext) {
 				LOGGER.log(LOG_PRIORITY, "Request Execution no: "+executionCount);
-				System.out.println("Request Execution no: "+executionCount);
+				//System.out.println("Request Execution no: "+executionCount);
 				if(executionCount >= 5) {
 					LOGGER.log(LOG_PRIORITY, "Aborting Request retry...");
-					System.out.println("Aborting Request retry...");
+					//System.out.println("Aborting Request retry...");
 					return false;
 				}
 				LOGGER.log(LOG_PRIORITY, "Retrying request...");
-				System.out.println("Retrying request...");
+				//System.out.println("Retrying request...");
 				return true;
 			}
 		};
