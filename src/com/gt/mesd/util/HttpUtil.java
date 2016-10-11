@@ -98,6 +98,7 @@ public class HttpUtil {
 	
 	//retry handler -> attempts request 5 times
 	public static HttpRequestRetryHandler getRetryHandler(){
+		
 		return new HttpRequestRetryHandler() {			
 			@Override
 			public boolean retryRequest(IOException exception, int executionCount, HttpContext httpContext) {

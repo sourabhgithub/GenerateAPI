@@ -47,7 +47,7 @@ public class HttpRequestTest extends Mockito{
 		
 		int response = httpUtil.postRequest1(URL, USER, PASSWORD);
 				
-		//System.out.println(response);
+		System.out.println(response);
 		
 	}
 	

@@ -38,7 +38,7 @@ public class TMKIntegrationTest {
 	@Test
 	public void TMKIntegrationSelfTest() throws JSONException,IOException{
 
-		LOGGER.info("START Function : TMKIntegrationTest");
+		LOGGER.info("START Function : TMKIntegrationTest"); 
 		
 		PropertiesToMapConverter conf = new PropertiesToMapConverter();
 		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-incident.json"));
