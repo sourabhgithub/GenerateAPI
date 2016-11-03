@@ -21,6 +21,7 @@ public class DataTransformer {
 
 		JSONObject outJson = new JSONObject();
 
+		@SuppressWarnings("unchecked")
 		Iterator<String> keys = inputJson.keys();
 		while (keys.hasNext()) {
 			String key = keys.next();

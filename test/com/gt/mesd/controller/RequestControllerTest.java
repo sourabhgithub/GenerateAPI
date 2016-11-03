@@ -1,9 +1,7 @@
 package com.gt.mesd.controller;
 
-import java.io.IOException;
 import java.util.Map;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
@@ -14,7 +12,7 @@ import com.gt.mesd.util.PropertiesToMapConverter;
 public class RequestControllerTest {
 
 	@Test
-	public void RequestControllerTest() throws JSONException, IOException {
+	public void processRequest() throws Exception {
 
 		PropertiesToMapConverter conf = new PropertiesToMapConverter();
 		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
@@ -22,8 +20,8 @@ public class RequestControllerTest {
 
 		if (Constants.REQUEST.equalsIgnoreCase(inputJson.getString(Constants.LEVEL))) {
 			RequestController requestController = new RequestController();
-			requestController.makeRequestWithJson(inputJson, propertiesMap);
-			requestController.makeRequestWithXml(inputJson, propertiesMap);
+			requestController.processRequest(inputJson, propertiesMap);
+			// requestController.makeRequestWithXml(inputJson, propertiesMap);
 		}
 
 	}

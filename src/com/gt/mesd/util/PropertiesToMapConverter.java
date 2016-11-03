@@ -1,24 +1,26 @@
 package com.gt.mesd.util;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import com.trustmarkins.mesd.exception.TMKException;
+
 public class PropertiesToMapConverter {
 
 	private Properties prop = null;
 
-	public void getConfigProperties(String fileName) {
-
-		InputStream is = null;
+	private void getConfigProperties(String fileName) {
 		try {
+			String path = System.getProperty("user.dir");
 			this.prop = new Properties();
-			is = this.getClass().getResourceAsStream(fileName);
-			prop.load(is);
+			prop.load(new FileInputStream(path + File.separator + ".." + File.separator + "integration" + File.separator + "conf" + File.separator + fileName));
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -26,7 +28,7 @@ public class PropertiesToMapConverter {
 		}
 	}
 
-	public Map<String, String> getPropertiesMap(String fileName) throws IOException {
+	public Map<String, String> getPropertiesMap(String fileName) throws TMKException {
 		getConfigProperties(fileName);
 		Map<String, String> map = new HashMap<String, String>();
 		Set<Object> keys = getAllKeys();
@@ -38,12 +40,12 @@ public class PropertiesToMapConverter {
 		return map;
 	}
 
-	public Set<Object> getAllKeys() {
+	private Set<Object> getAllKeys() {
 		Set<Object> keys = prop.keySet();
 		return keys;
 	}
 
-	public String getPropertyValue(String key) {
+	private String getPropertyValue(String key) {
 		return this.prop.getProperty(key);
 	}
 

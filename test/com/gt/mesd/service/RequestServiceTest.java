@@ -14,7 +14,7 @@ import com.gt.mesd.util.PropertiesToMapConverter;
 public class RequestServiceTest {
 	@Test
 	public void RequestServiceTest() throws JSONException, IOException{
-		PropertiesToMapConverter conf = new PropertiesToMapConverter();
+		/*PropertiesToMapConverter conf = new PropertiesToMapConverter();
 		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-request.json"));
 		Map<String, String> propertiesMap = conf.getPropertiesMap("/request-mapping-gt-to-lt.properties");
 		
@@ -26,6 +26,6 @@ public class RequestServiceTest {
 		System.out.println();
 		System.out.println("RequestService Test: ");
 		System.out.println(transformedJson);
-		System.out.println(transformedXml);
+		System.out.println(transformedXml);*/
 	}
 }

@@ -1,4 +1,4 @@
-package com.gt.mesd.util;
+/*package com.gt.mesd.util;
 
 import static org.junit.Assert.*;
 
@@ -47,3 +47,4 @@ public class BaseTest {
 	}
 
 }
+*/

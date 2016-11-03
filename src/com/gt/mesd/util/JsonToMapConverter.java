@@ -1,6 +1,8 @@
 package com.gt.mesd.util;
 
-import java.io.InputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
@@ -31,8 +33,10 @@ public class JsonToMapConverter {
 	}
 
 	@SuppressWarnings("resource")
-	public static String getJsonObject(String fileName) {
-		InputStream is = JsonToMapConverter.class.getClass().getResourceAsStream(fileName);
+	public static String getJsonObject(String fileName) throws FileNotFoundException {
+		String path = System.getProperty("user.dir");
+		FileInputStream is = new FileInputStream(path + File.separator + ".." + File.separator + "integration" + File.separator + "conf"+ File.separator + fileName);
+		//InputStream is = JsonToMapConverter.class.getClass().getResourceAsStream(path+fileName);
 		Scanner s = new Scanner(is).useDelimiter("\\A");
 		String result = s.hasNext() ? s.next() : "";
 		return result;

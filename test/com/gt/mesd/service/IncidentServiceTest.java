@@ -14,7 +14,7 @@ import com.gt.mesd.util.PropertiesToMapConverter;
 public class IncidentServiceTest {
 	@Test
 	public void IncidentServiceTest() throws JSONException, IOException{
-		PropertiesToMapConverter conf = new PropertiesToMapConverter();
+	/*	PropertiesToMapConverter conf = new PropertiesToMapConverter();
 		JSONObject inputJson = new JSONObject(JsonToMapConverter.getJsonObject("/gt-incident.json"));
 		Map<String, String> propertiesMap = conf.getPropertiesMap("/incident-mapping-gt-to-lt.properties");
 		
@@ -26,6 +26,6 @@ public class IncidentServiceTest {
 		System.out.println();
 		System.out.println("IncidentService Test: ");
 		System.out.println(transformedJson);
-		System.out.println(transformedXml);
+		System.out.println(transformedXml);*/
 	}
 }

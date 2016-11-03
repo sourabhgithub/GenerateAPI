@@ -1,0 +1,87 @@
+{  
+   "CREATEDTIME":{  
+      "OLD":"1476135954449",
+      "NEW":"1475963100000"
+   },
+   "DUEBYTIME":{  
+      "OLD":"1476198000449",
+      "NEW":"1476284400000"
+   },
+   "RESPONSEDUEBYTIME":{  
+      "OLD":"1476183660449",
+      "NEW":"1476184500000"
+   },
+   "FR_DUETIME":{  
+      "OLD":"1476183660449",
+      "NEW":"1476184500000"
+   },
+   "SHORTDESCRIPTION":{  
+      "OLD":"test2",
+      "NEW":"Description"
+   },
+   "SUBJECT":{  
+      "OLD":"test1",
+      "NEW":"test2"
+   },
+   "MODE":{  
+      "OLD":"Phone Call",
+      "NEW":"Verbal"
+   },
+   "SLA":{  
+      "OLD":"R1",
+      "NEW":"P1"
+   },
+   "SITE":{  
+      "OLD":"ALLEN",
+      "NEW":"BERWYN PA"
+   },
+   "CATEGORY":{  
+      "OLD":"Building Issues",
+      "NEW":"Database"
+   },
+   "SUBCATEGORY":{  
+      "OLD":"",
+      "NEW":"not assigned"
+   },
+   "ITEM":{  
+      "OLD":"",
+      "NEW":"not assigned"
+   },
+   "TECHNICIAN":{  
+      "OLD":"Verma, Sourabh",
+      "NEW":"Ensono Service Desk"
+   },
+   "TECHNICIAN_LOGINNAME":{  
+      "OLD":"o89",
+      "NEW":""
+   },
+   "PRIORITY":{  
+      "OLD":"R1",
+      "NEW":"P1"
+   },
+   "GROUP":{  
+      "OLD":"AS400 Systems",
+      "NEW":"AIX Support"
+   },
+   "DESCRIPTION":{  
+      "OLD":"test2",
+      "NEW":"<p>Description</p>"
+   },
+   "Business Unit":{  
+      "OLD":"Coresource",
+      "NEW":"DILTC"
+   },
+   "Was a KA used":{  
+      "OLD":"No",
+      "NEW":"Yes"
+   },
+   "Needs Review":{  
+      "OLD":"No",
+      "NEW":"Yes"
+   },
+   "Reason":{  
+      "OLD":"reason1",
+      "NEW":"Again try"
+   }
+}
+

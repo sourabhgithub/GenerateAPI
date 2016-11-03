@@ -1,66 +1,39 @@
 package com.gt.mesd.util;
 
 import java.io.IOException;
+import java.util.Map;
+import java.util.logging.Logger;
 
-import junit.framework.Assert;
-
-import org.apache.log4j.Logger;
+import org.json.JSONException;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-public class HttpRequestTest extends Mockito{
-	private static final Logger LOGGER = Logger.getLogger(HttpRequestTest.class.getName());
-	
+import com.trustmarkins.mesd.exception.TMKException;
+
+import junit.framework.Assert;
+
+public class HttpRequestTest extends Mockito {
+
 	@Test
-	public void PostRequest1SuccessTest() throws IOException{
-		final String URL = "https://jsonplaceholder.typicode.com/posts";
-		final String USER = "mockUser";
-		final String PASSWORD = "mockPass";
-		
-		HttpUtil httpUtil  = new HttpUtil();
-		
-		int response = httpUtil.postRequest1(URL, USER, PASSWORD);
-		//System.out.println(response);
-		Assert.assertEquals(201, response);
-	}
-	
-	@Test
-	public void PostRequest2SuccessTest() throws IOException{
-		final String URL = "https://jsonplaceholder.typicode.com/posts";
-		final String USER = "mockUser";
-		final String SESSION_ID = "mockSessionId";
-		
+	public void authenticateEndpointWithURL() throws TMKException, JSONException, IOException {
+		Logger LOGGER = LoggerSetup.getConfiguration(String.valueOf("100"));
+		LOGGER.info("Test");
+		PropertiesToMapConverter mapConverter = new PropertiesToMapConverter();
+		Map<String, String> propertiesMap = mapConverter.getPropertiesMap("config.properties");
+		final String endPointURL = propertiesMap.get("endPointURL");
+		final String userName = propertiesMap.get("userName");
+		final String password = propertiesMap.get("password");
 		HttpUtil httpUtil = new HttpUtil();
-			
-		int response = httpUtil.postRequest2(URL, USER, SESSION_ID);
-		//System.out.println(response);
-		Assert.assertEquals(201, response);
+
+		int response = httpUtil.authenticateEndpoint(endPointURL + "/Login", userName, password);
+		Assert.assertEquals(200, response);
 	}
-	
+
 	@Test(expected = IOException.class)
-	public void PostRequest1ExceptionTest() throws IOException{
+	public void endPointURLWithBadURL() throws IOException, JSONException {
 		final String URL = "http://api.mockUrl/";
-		final String USER = "mockUser";
-		final String PASSWORD = "mockPass";
-		
 		HttpUtil httpUtil = new HttpUtil();
-		
-		int response = httpUtil.postRequest1(URL, USER, PASSWORD);
-				
-		System.out.println(response);
-		
+		httpUtil.authenticateEndpoint(URL, Mockito.anyString(), Mockito.anyString());
 	}
-	
-	@Test(expected = IOException.class)
-	public void PostRequest2ExceptionTest() throws IOException{
-		final String URL = "http://api.mockUrl/";
-		final String USER = "mockUser";
-		final String SESSION_ID = "mockSessionId";
-		
-		HttpUtil httpUtil = new HttpUtil();
-				
-		int response = httpUtil.postRequest2(URL, USER, SESSION_ID);
-		
-		
-	}
+
 }
